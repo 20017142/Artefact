@@ -343,4 +343,4 @@ if __name__ == '__main__':
     except locale.Error:
         # Handle the error by setting a default locale
         locale.setlocale(locale.LC_ALL, 'C')
-    app.run(debug=True)
+    app.run()
