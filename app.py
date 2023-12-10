@@ -299,7 +299,7 @@ def buy():
             booksLen = len(books)
 
             return render_template("index.html", shoppingCart=shoppingCart, books=books, shopLen=len(shoppingCart), booksLen=booksLen, total=total, totItems=totItems, display=display, session=session)
-
+  
 @app.route("/update/")
 def update():
     shoppingCart = {}
