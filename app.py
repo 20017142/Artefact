@@ -5,7 +5,7 @@ from flask import Flask, render_template,session, redirect,request
 from datetime import datetime
 import locale
 
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='/Static', static_folder='Static')
 
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
@@ -299,7 +299,7 @@ def buy():
             booksLen = len(books)
 
             return render_template("index.html", shoppingCart=shoppingCart, books=books, shopLen=len(shoppingCart), booksLen=booksLen, total=total, totItems=totItems, display=display, session=session)
-
+  
 @app.route("/update/")
 def update():
     shoppingCart = {}
@@ -336,11 +336,14 @@ def update():
         return render_template ("cart.html",subTotal=subTotal, shoppingCart=shoppingCart, shopLen=shopLen, total=total, totItems=totItems, display=display, session=session )
 
 
-if __name__ == '__main__':
-    try:
-    # Try to set the desired locale
-        locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
-    except locale.Error:
-    # Handle the error by setting a default locale
-        locale.setlocale(locale.LC_ALL, 'C')
-    app.run(debug=True)
+#if __name__ == '__main__':
+   # try:
+        # Try to set the desired locale
+      #  locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
+  #  except locale.Error:
+        # Handle the error by setting a default locale
+    #    locale.setlocale(locale.LC_ALL, 'C')
+  #  app.run(debug=True)
+
+if __name__ == "__main__":
+ app.run(host='0.0.0.0', port='8080')
