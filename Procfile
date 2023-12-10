@@ -1,1 +1,1 @@
-web: gunicorn -c gunicorn_config.py app:app
+web: waitress-serve --port=8000 app:app
