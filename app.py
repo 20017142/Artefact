@@ -5,7 +5,7 @@ from flask import Flask, render_template,session, redirect,request
 from datetime import datetime
 import locale
 
-app = Flask(__name__,static_url_path='/static', static_folder='static')
+app = Flask(__name__,static_url_path='/Static', static_folder='Static')
 
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
