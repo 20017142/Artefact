@@ -338,9 +338,9 @@ def update():
 
 if __name__ == '__main__':
     try:
-    # Try to set the desired locale
+        # Try to set the desired locale
         locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
     except locale.Error:
-    # Handle the error by setting a default locale
+        # Handle the error by setting a default locale
         locale.setlocale(locale.LC_ALL, 'C')
-    #app.run(debug=True)
+    app.run(debug=True)
