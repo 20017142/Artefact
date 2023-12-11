@@ -168,7 +168,10 @@ def checkout():
     total=0
     display=0
     cart = db.execute("SELECT * FROM cart")
-    
+    if request.args.get('id'):
+        query = request.args.get('id')
+        books = db.execute("SELECT * FROM books WHERE id = :query", query=query)
+
     print(cart)
     for item in cart:
         try:     
@@ -218,8 +221,8 @@ def remove():
 def filter():
     if request.args.get('id'):
         query = request.args.get('id')
-        books = db.execute("SELECT * FROM books WHERE id = :query", query=query)
-        
+        books = db.execute("SELECT * FROM books WHERE id = :query", query=query)
+
     if request.args.get('sale'):
         query = request.args.get('sale')
         books = db.execute("SELECT * FROM books WHERE onSale = :query", query=query)
@@ -338,7 +341,7 @@ def update():
         
         print(total,totItems)
         return render_template ("cart.html",subTotal=subTotal, shoppingCart=shoppingCart, shopLen=shopLen, total=total, totItems=totItems, display=display, session=session )
-
+    
 
 #if __name__ == '__main__':
    # try:
