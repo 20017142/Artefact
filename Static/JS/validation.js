@@ -49,7 +49,7 @@ function validate() {
 
     if (!USERNAME.val() || USERNAME.val().length < 5) {
 
-        USERNAME_MSG.html("Username must be of atleast five characters");
+        USERNAME_MSG.html("Username");
         USERNAME_MSG.show();
         console.log("Bad username");
         valid = false;
